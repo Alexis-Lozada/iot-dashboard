@@ -133,7 +133,7 @@ export function AlertSound({
       ) : (
         <VolumeX className="h-4 w-4 text-fg" aria-hidden="true" />
       )}
-      <span className="text-fg">{enabled ? "Alarma" : "Silencio"}</span>
+      <span className="text-fg">{enabled ? "Alarma" : "🔇"}</span>
     </button>
   );
 }

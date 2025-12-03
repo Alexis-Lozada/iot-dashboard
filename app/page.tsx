@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { DistanceChart, type DistancePoint } from "@/components/distance-chart";
 import { CommandPanel } from "@/components/command-panel";
-import { AlertSound } from "@/components/alert-sound";
 
 const MAX_POINTS = 60; // ~60 segundos si recibes 1 dato/seg
 
@@ -80,6 +79,7 @@ export default function Page() {
 
   return (
     <main className="mx-auto max-w-6xl p-4 md:p-6">
+      {/* Header SIEMPRE en fila (también en mobile) */}
       <header className="flex items-center justify-between gap-3">
         <div className="min-w-0">
           <h1 className="truncate text-xl font-bold">IoT Dashboard</h1>
@@ -91,12 +91,12 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <AlertSound distance={5} threshold={10} />
+        <div className="shrink-0">
           <ThemeToggle />
         </div>
       </header>
 
+      {/* Arriba: cards principales */}
       <section className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card title="Distancia (cm)">
           <div className="flex items-end justify-between">
@@ -117,6 +117,7 @@ export default function Page() {
         </Card>
       </section>
 
+      {/* Medio: card SOLO para la gráfica */}
       <section className="mt-4">
         <Card title={`Gráfica de distancia (últimos ${MAX_POINTS} puntos)`}>
           <DistanceChart data={series} height={260} />
@@ -126,6 +127,7 @@ export default function Page() {
         </Card>
       </section>
 
+      {/* Abajo: comandos extraídos a componente */}
       <section className="mt-4">
         <CommandPanel disabled={!online} />
       </section>
