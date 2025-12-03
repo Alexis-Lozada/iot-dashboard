@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { DistanceChart, type DistancePoint } from "@/components/distance-chart";
+import { CommandPanel } from "@/components/command-panel";
 
 const MAX_POINTS = 60; // ~60 segundos si recibes 1 dato/seg
 
@@ -11,7 +12,7 @@ function formatLocalTime(ms: number) {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
-    hour12: true, // cambia a false si quieres 24h
+    hour12: true, // cámbialo a false si quieres 24h
   }).format(new Date(ms));
 }
 
@@ -49,7 +50,7 @@ export default function Page() {
       const now = Date.now();
       const point: DistancePoint = {
         t: now,
-        label: formatLocalTime(now), // ✅ hora local del usuario
+        label: formatLocalTime(now),
         distance: d,
       };
 
@@ -112,7 +113,7 @@ export default function Page() {
         </Card>
       </section>
 
-      {/* Abajo: card SOLO para la gráfica */}
+      {/* Medio: card SOLO para la gráfica */}
       <section className="mt-4">
         <Card title={`Gráfica de distancia (últimos ${MAX_POINTS} puntos)`}>
           <DistanceChart data={series} height={260} />
@@ -120,6 +121,11 @@ export default function Page() {
             Nota: se agrega un punto por cada mensaje recibido en /distance.
           </p>
         </Card>
+      </section>
+
+      {/* Abajo: comandos extraídos a componente */}
+      <section className="mt-4">
+        <CommandPanel disabled={!online} />
       </section>
     </main>
   );
