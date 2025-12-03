@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Theme tokens */
+@theme {
+  --color-bg: rgb(var(--bg));
+  --color-fg: rgb(var(--fg));
+  --color-muted: rgb(var(--muted));
+  --color-card: rgb(var(--card));
+  --color-border: rgb(var(--border));
+
+  --color-primary: rgb(var(--primary));
+  --color-danger: rgb(var(--danger));
+  --color-success: rgb(var(--success));
+  --color-warning: rgb(var(--warning));
+}
 
 /* Tokens base (WCAG-friendly) */
 :root {
@@ -26,7 +36,7 @@
   --bg: 18 18 18;            /* casi negro */
   --fg: 226 232 240;       /* gris claro */
   --muted: 148 163 184;
-  --card: 15 23 42;        /* slate */
+  --card: 30 30 30;        /* slate */
   --border: 30 41 59;
 
   --primary: 96 165 250;

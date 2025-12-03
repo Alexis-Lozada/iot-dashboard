@@ -8,7 +8,7 @@ type Props = {
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+    <section className="rounded-2xl bg-card p-4 shadow-sm">
       <h2 className="text-sm font-semibold text-muted">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>
