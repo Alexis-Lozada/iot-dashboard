@@ -8,10 +8,10 @@
 :root {
   color-scheme: light;
 
-  --bg: 255 255 255;
+  --bg: 228 228 228;
   --fg: 17 24 39;         /* gris muy oscuro */
   --muted: 107 114 128;    /* gris medio */
-  --card: 245 246 248;     /* gris claro */
+  --card: 255 255 255;     /* gris claro */
   --border: 229 231 235;   /* borde */
 
   --primary: 37 99 235;    /* azul */
@@ -23,7 +23,7 @@
 .dark {
   color-scheme: dark;
 
-  --bg: 3 7 18;            /* casi negro */
+  --bg: 18 18 18;            /* casi negro */
   --fg: 226 232 240;       /* gris claro */
   --muted: 148 163 184;
   --card: 15 23 42;        /* slate */
