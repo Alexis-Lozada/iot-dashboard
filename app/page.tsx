@@ -18,7 +18,7 @@ function formatLocalTime(ms: number) {
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-xl bg-card p-4">
+    <section className="rounded-xl bg-card p-4 shadow-sm">
       <h2 className="text-sm font-semibold text-muted">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>
