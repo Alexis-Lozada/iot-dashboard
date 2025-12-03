@@ -18,7 +18,7 @@ function formatLocalTime(ms: number) {
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-xl bg-card p-4 shadow-sm">
+    <section className="rounded-2xl bg-card p-4 shadow-sm">
       <h2 className="text-sm font-semibold text-muted">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>
@@ -79,9 +79,10 @@ export default function Page() {
 
   return (
     <main className="mx-auto max-w-6xl p-4 md:p-6">
-      <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h1 className="text-xl font-bold">IoT Dashboard</h1>
+      {/* Header SIEMPRE en fila (también en mobile) */}
+      <header className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="truncate text-xl font-bold">IoT Dashboard</h1>
           <p className="text-sm text-muted">
             Estado:{" "}
             <span className={`font-semibold ${online ? "text-success" : "text-warning"}`}>
@@ -89,7 +90,10 @@ export default function Page() {
             </span>
           </p>
         </div>
-        <ThemeToggle />
+
+        <div className="shrink-0">
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Arriba: cards principales */}
